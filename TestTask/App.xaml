@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:TestTask"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Padding" Value="6 3"/>
+        </Style>
          
     </Application.Resources>
 </Application>
