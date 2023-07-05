@@ -20,32 +20,32 @@
         </DockPanel>
 
         <StackPanel Margin="0 20 0 0" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Margin="50 5" Orientation="Vertical">
+            <StackPanel Margin="10 5" Orientation="Vertical">
                 <TextBlock Text="Price"/>
                 <TextBlock FontSize="18"  Text="{Binding Price}"/>
             </StackPanel>
-            <StackPanel Margin="50 5" Orientation="Vertical">
+            <StackPanel Margin="10 5" Orientation="Vertical">
                 <TextBlock Text="Volume"/>
                 <TextBlock FontSize="18"  Text="{Binding Volume}"/>
             </StackPanel>
-            <StackPanel Margin="50 5" Orientation="Vertical">
+            <StackPanel Margin="10 5" Orientation="Vertical">
                 <TextBlock Text="Change"/>
                 <TextBlock FontSize="18"  Text="{Binding Change}"/>
             </StackPanel>
         </StackPanel>
 
-        <ListView Margin="0 20 0 0" Grid.Row="2" HorizontalAlignment="Center" Height="200" ItemsSource="{Binding Markets}" >
+        <ListView Margin="0 20 0 0" Grid.Row="2" HorizontalAlignment="Center" Height="350" ItemsSource="{Binding Markets}" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Market Name">
+                        <GridViewColumn Header="Market">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Name}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Price">
+                        <GridViewColumn Header="Price (USD)">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Price}"/>

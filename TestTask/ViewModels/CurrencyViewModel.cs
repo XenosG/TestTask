@@ -21,11 +21,11 @@ namespace TestTask.ViewModels
 
         public string Code => _currency.Code;
 
-        public decimal Price => _currency.Price;
+        public string Price => _currency.Price.ToString("0.000");
 
-        public string Change => _currency.PriceChange.ToString() + "%";
+        public string Change => (_currency.PriceChange < 0 ? "" : "+") + _currency.PriceChange.ToString("0.000") + "%";
 
-        public decimal Volume => _currency.Volume;
+        public string Volume => _currency.Volume.ToString("0.000");
 
         public CurrencyViewModel(NavigationStore navigationStore, Currency currency)
         {

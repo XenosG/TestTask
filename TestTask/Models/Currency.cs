@@ -8,6 +8,8 @@ namespace TestTask.Models
 {
     public class Currency
     {
+        public string Id { get; }
+
         public string Name { get; }
 
         public string Code { get; }
@@ -18,8 +20,9 @@ namespace TestTask.Models
 
         public decimal Volume { get; }
 
-        public Currency(string name, string code, decimal price, float priceChange, decimal volume)
+        public Currency(string id, string name, string code, decimal price, float priceChange, decimal volume)
         {
+            Id = id;
             Name = name;
             Code = code;
             Price = price;

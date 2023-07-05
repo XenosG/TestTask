@@ -20,7 +20,7 @@
             <TextBox Padding="3" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <ListView Width="auto" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" ItemsSource="{Binding Currencies}">
+        <ListView Height="350" Width="auto" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" ItemsSource="{Binding Currencies}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name">

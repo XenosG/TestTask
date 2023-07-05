@@ -13,7 +13,7 @@ namespace TestTask.ViewModels
 
         public string Name => _market.Name;
 
-        public decimal Price => _market.Price;
+        public string Price => _market.Price.ToString("0.000000");
 
         public MarketViewModel(Market market)
         {
