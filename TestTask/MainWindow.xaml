@@ -9,6 +9,6 @@
         FontFamily="Bahnschrift Light SemiCondensed"
         Title="CryptoApp" Height="450" Width="600">
     <Grid  Width="400" Margin="5 25 5 5">
-        <views:CurrencyDetailsView/>
+        <views:CurrencyDetailsView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

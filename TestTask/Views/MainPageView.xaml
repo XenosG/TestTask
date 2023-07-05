@@ -17,22 +17,51 @@
 
         <StackPanel  Width="auto" Grid.Row="1" Orientation="Vertical" Margin="0 10 0 0">
             <TextBlock Text="Search"/>
-            <TextBox Padding="3"/>
+            <TextBox Padding="3" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <ListView Width="auto" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
-            <ListViewItem/>
+        <ListView Width="auto" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" ItemsSource="{Binding Currencies}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name"/>
-                    <GridViewColumn Header="Code"/>
-                    <GridViewColumn Header="Price"/>
-                    <GridViewColumn Header="Change"/>
-                    <GridViewColumn Header="Volume"/>
+                    <GridViewColumn Header="Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Code">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Code}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Price">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Price}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Change">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Change}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Volume">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Volume}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="i" Padding="10 3"/>
+                                <Button Content="i" Padding="10 3" Command="{Binding OpenDetailsCommand}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

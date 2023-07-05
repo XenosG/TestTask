@@ -14,24 +14,44 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0">
-            <TextBlock Text="Code" FontSize="24"/>
-            <TextBlock Text="Name" FontSize="24" Margin="15 0 0 0"/>
-            <Button HorizontalAlignment="Right" Content="Back" Padding="10 4"/>
+            <TextBlock Text="{Binding Code}" FontSize="24"/>
+            <TextBlock Text="{Binding Name}" FontSize="24" Margin="15 0 0 0"/>
+            <Button HorizontalAlignment="Right" Content="Back" Padding="10 4" Command="{Binding ReturnToListCommand}"/>
         </DockPanel>
 
         <StackPanel Margin="0 20 0 0" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock FontSize="18" Margin="50 5" Text="Price"/>
-            <TextBlock FontSize="18" Margin="50 5" Text="Volume"/>
-            <TextBlock FontSize="18" Margin="50 5" Text="Change"/>
+            <StackPanel Margin="50 5" Orientation="Vertical">
+                <TextBlock Text="Price"/>
+                <TextBlock FontSize="18"  Text="{Binding Price}"/>
+            </StackPanel>
+            <StackPanel Margin="50 5" Orientation="Vertical">
+                <TextBlock Text="Volume"/>
+                <TextBlock FontSize="18"  Text="{Binding Volume}"/>
+            </StackPanel>
+            <StackPanel Margin="50 5" Orientation="Vertical">
+                <TextBlock Text="Change"/>
+                <TextBlock FontSize="18"  Text="{Binding Change}"/>
+            </StackPanel>
         </StackPanel>
 
-        <ListView Margin="0 20 0 0" Grid.Row="2" HorizontalAlignment="Center" Height="200">
-            <ListViewItem/>
+        <ListView Margin="0 20 0 0" Grid.Row="2" HorizontalAlignment="Center" Height="200" ItemsSource="{Binding Markets}" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Market Name"/>
-                        <GridViewColumn Header="Price"/>
+                        <GridViewColumn Header="Market Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Price">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Price}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
 
                 </GridView>
