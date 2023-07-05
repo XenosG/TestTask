@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TestTask.Commands;
 using TestTask.Models;
+using TestTask.Stores;
 
 namespace TestTask.ViewModels
 {
@@ -25,9 +27,11 @@ namespace TestTask.ViewModels
 
         public decimal Volume => _currency.Volume;
 
-        public CurrencyViewModel(Currency currency)
+        public CurrencyViewModel(NavigationStore navigationStore, Currency currency)
         {
             _currency = currency;
+
+            OpenDetailsCommand = new OpenDetailsCommand(navigationStore, _currency);
         }
 
     }

@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TestTask.Commands;
 using TestTask.Models;
+using TestTask.Stores;
 
 namespace TestTask.ViewModels
 {
     public class CurrencyDetailsViewModel : ViewModelBase
     {
-        public ICommand ReturnToListCommand { get; }
+        public ICommand ReturnToExplorerCommand { get; }
 
         private readonly Currency _currency;
 
@@ -29,11 +31,13 @@ namespace TestTask.ViewModels
 
         public IEnumerable<MarketViewModel> Markets => _markets;
 
-        public CurrencyDetailsViewModel(Currency currency)
+        public CurrencyDetailsViewModel(NavigationStore navigationStore, Currency currency)
         {
             _markets = new ObservableCollection<MarketViewModel>();
 
             _currency = currency;
+
+            ReturnToExplorerCommand = new ReturnToExplorerCommand(navigationStore);
         }
 
     }

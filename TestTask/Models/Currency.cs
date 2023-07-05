@@ -18,16 +18,13 @@ namespace TestTask.Models
 
         public decimal Volume { get; }
 
-        public List<Market> Markets { get; }
-
-        public Currency(string name, string code, decimal price, float priceChange, decimal volume, List<Market> markets)
+        public Currency(string name, string code, decimal price, float priceChange, decimal volume)
         {
             Name = name;
             Code = code;
             Price = price;
             PriceChange = priceChange;
             Volume = volume;
-            Markets = markets;
         }
 
     }

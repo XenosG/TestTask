@@ -4,11 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestTask" xmlns:views="clr-namespace:TestTask.Views"
+        xmlns:vms="clr-namespace:TestTask.ViewModels"
         mc:Ignorable="d"
         FontSize="14"
         FontFamily="Bahnschrift Light SemiCondensed"
         Title="CryptoApp" Height="450" Width="600">
     <Grid  Width="400" Margin="5 25 5 5">
-        <views:CurrencyDetailsView DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:MainPageViewModel}">
+                <views:MainPageView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CurrencyDetailsViewModel}">
+                <views:CurrencyDetailsView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+
     </Grid>
 </Window>

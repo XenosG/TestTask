@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestTask.Models;
+using TestTask.Stores;
 
 namespace TestTask.ViewModels
 {
@@ -28,11 +29,11 @@ namespace TestTask.ViewModels
 
 		public IEnumerable<CurrencyViewModel> Currencies => _currencies;
 
-        public MainPageViewModel()
+        public MainPageViewModel(NavigationStore navigationStore)
         {
             _currencies = new ObservableCollection<CurrencyViewModel>();
 
-			_currencies.Add(new CurrencyViewModel(new Currency("Bitcoin", "BTC", (decimal)5634.23, (float)-23.4, 2334, null)));
+			_currencies.Add(new CurrencyViewModel(navigationStore, new Currency("Bitcoin", "BTC", (decimal)5634.23, (float)-23.4, 2334)));
         }
     }
 }
